@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/server.js",
     "removebuild": "node_modules/.bin/rimraf build",
-    "transpile": "babel . -d build --presets env --ignore node_modules",
+    "transpile": "babel . -d build --presets env --ignore node_modules,src",
     "build": "npm run removebuild && npm run transpile"
   },
   "dependencies": {
