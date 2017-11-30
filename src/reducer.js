@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 import actionTypes from './action-types';
 import api from './api';
 
@@ -16,4 +18,9 @@ const reducer = function reduce(state = initialState, action) {
   }
 };
 
-export default reducer;
+// export default reducer;
+
+export default combineReducers({
+  router: routerReducer,
+  content: reducer,
+});
