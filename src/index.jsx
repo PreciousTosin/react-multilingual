@@ -3,19 +3,31 @@ jsx-a11y/anchor-is-valid: 'off', max-len: 'off' */
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { Component } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 
-import { BrowserRouter as Router } from 'react-router-dom';
+// import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { ConnectedRouter as Router } from 'react-router-redux';
+import store, { history } from './store';
 
-import SwitchNavRoute from './switch';
-import Header from './header';
+import App from './components/app';
 
 import '../public/stylesheets/style.css';
 
 // const $ = require('jquery');
 
-class App extends Component {
+render((
+  <Provider {... { store }}>
+    <Router history={history}>
+      <App />
+    </Router>
+  </Provider>
+), document.getElementById('app'));
+
+
+/*
+class Index extends Component {
   constructor() {
     super();
 
@@ -36,9 +48,14 @@ class App extends Component {
     );
   }
 }
+*/
+/*
 
 render((
   <Router>
-    <App />
+    <Index />
   </Router>
 ), document.getElementById('app'));
+*/
+
+// const store = createStore(content);
